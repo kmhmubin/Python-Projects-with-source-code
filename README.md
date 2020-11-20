@@ -1,2 +1,8 @@
-# Automate the boring stuff with python3
- automate the boring stuff with python 3
+# Various Python3 Projects
+---
+Those projects are
+
+* BMI
+* Your Life In Weeks
+* Tip Calculator
+* 
