@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\kmhmu\\anaconda3\\envs\\practice\\python.exe",
+    "python.pythonPath": "/home/devbox/anaconda3/envs/practice/bin/python",
     "python.testing.promptToConfigure": false,
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": false,
