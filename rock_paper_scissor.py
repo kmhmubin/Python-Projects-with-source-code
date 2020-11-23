@@ -1,8 +1,10 @@
 # rock, paper and scissors games
 
+# import random package
 import random
 
 # ASCII Arts for rock, paper and scissors
+# Adding ASCII art into a variable
 
 rock = '''
     _______
@@ -31,12 +33,14 @@ scissors = '''
 ---.__(___)
 '''
 
-# Game images
+# Adding Game Images into a list
 game_images = [rock, paper, scissors]
 
-# entering user choice
+# Taking input from user choice
 user_choice = int(input(
     "What do you choose? Type 0 for Rock, 1 for Paper, 2 for scissor. \n => "))
+
+print("User Choice: ")    
 
 # print game image by user choice
 print(game_images[user_choice])
@@ -44,23 +48,15 @@ print(game_images[user_choice])
 # random computer choice
 computer_chocie = random.randint(0, 2)
 
+print("Computer Choice: ")
+
 # print game image by computer choice
 print(game_images[computer_chocie])
-
-# print(f"Computer chose {computer_chocie}")
-
-"""
-rock paper and scissor rules:
-
-1. Rock wins against scissors.
-2. Scissors win against paper.
-3. Paper wins against rock. 
-"""
 
 # rules in logic
 if user_choice == 0 and computer_chocie == 2:
     print("You win! 🎉")
-elif user_choice == 0 and computer_chocie == 2:
+elif computer_choice == 0 and user_chocie == 2:
     print("You lose.  ☠")
 elif computer_chocie > user_choice:
     print("You lose. ☠")
