@@ -11,7 +11,7 @@ nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
 
-# empty variable
+# empty list
 password_list = []
 # generating the letters
 for char in range(1, nr_letters+1):
@@ -26,9 +26,11 @@ for char in range(1, nr_numbers + 1):
     password_list.append(random.choice(numbers))
 
 # print(password_list)
+# shuffle password inside of the list
 random.shuffle(password_list)
 # print(password_list)
 
+# empty variable
 password = ""
 
 for char in password_list:
