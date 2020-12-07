@@ -10,7 +10,7 @@
 8. keep score
 """
 
-from turtle import Screen
+from turtle import Screen, Turtle
 
 # TODO: Create the screen
 # create screen object
@@ -21,6 +21,20 @@ screen.bgcolor("black")
 screen.setup(width=800, height=600)
 # screen title
 screen.title("Pong Game")
+
+# TODO: Create and move a paddle
+
+# creating a paddle object
+paddle = Turtle()
+# add paddle shape
+paddle.shape("square")
+# add paddle color
+paddle.color("white")
+# change the paddle shape size
+paddle.shapesize(stretch_wid=5, stretch_len=1)
+paddle.penup()
+# set up the default position
+paddle.goto(350, 0)
 
 # screen exit
 screen.exitonclick()
