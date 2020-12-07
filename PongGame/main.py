@@ -12,6 +12,8 @@
 
 from turtle import Screen, Turtle
 from paddle import Paddle
+from ball import Ball
+import time
 
 # TODO: Create the screen
 # create screen object
@@ -30,6 +32,10 @@ screen.tracer(0)
 right_paddle = Paddle((350, 0))
 left_paddle = Paddle((-350, 0))
 
+# TODO: crate ball and make it move
+# create ball object
+ball = Ball()
+
 # creating a paddle object
 paddle = Turtle()
 
@@ -44,7 +50,9 @@ screen.onkey(left_paddle.go_down, "s")
 game_is_on = True
 
 while game_is_on:
+    time.sleep(0.1)
     screen.update()
+    ball.move()
 
 # screen exit
 screen.exitonclick()
