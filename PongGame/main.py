@@ -13,6 +13,7 @@
 from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 # TODO: Create the screen
@@ -35,6 +36,9 @@ left_paddle = Paddle((-350, 0))
 # TODO: crate ball and make it move
 # create ball object
 ball = Ball()
+
+# creating scoreboard object
+scoreboard = Scoreboard()
 
 # creating a paddle object
 paddle = Turtle()
@@ -67,10 +71,12 @@ while game_is_on:
     # Detect Right paddle misses
     if ball.xcor() > 380:
         ball.reset_position()
+        scoreboard.left_point()
 
     # Detect Left paddle misses
     if ball.xcor() < -380:
         ball.reset_position()
+        scoreboard.right_point()
 
 # screen exit
 screen.exitonclick()
