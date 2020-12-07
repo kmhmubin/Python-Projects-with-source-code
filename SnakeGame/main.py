@@ -10,6 +10,7 @@
 """
 
 from turtle import Turtle, Screen
+from snake import Snake
 import time
 
 # creating a object
@@ -27,38 +28,15 @@ screen.title("Snake Game")
 
 # turn off the turtle animation 
 screen.tracer(0)
+# create snake object
+snake = Snake()
 
-# TODO: creating a snake body
-# TODO: Move the snake body
-
-# creating snake block
-starting_position = [(0, 0), (-20, 0), (-40, 0)]
-
-# empty segment
-segments = []
-
-for position in starting_position:
-    new_segment = Turtle(shape="square")
-    new_segment.color("Green")
-    new_segment.penup()
-    new_segment.goto(position)
-    segments.append(new_segment)
-
-# if game is on
 game_is_on = True
-
 while game_is_on:
-    # turn on the turtle animation
     screen.update()
-    time.sleep(0.1)
-
-    # range for segment are start at 2, stop at 0 and take step back -1
-    for seg_num in range(len(segments) - 1, 0, -1):
-        new_x = segments[seg_num - 1].xcor()
-        new_y = segments[seg_num - 1].ycor()
-        segments[seg_num].goto(new_x, new_y)
-    segments[0].forward(20)
-
+    time.sleep(0.9)
+    # move the snake
+    snake.move()
 
 # exit on click
 screen.exitonclick()
