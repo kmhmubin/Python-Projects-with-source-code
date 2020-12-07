@@ -1,8 +1,6 @@
+# TODO: Create and move a paddle
 # Paddle class
 from turtle import Turtle
-
-
-# TODO: Create and move a paddle
 
 
 class Paddle(Turtle):
