@@ -21,6 +21,8 @@ screen.bgcolor("black")
 screen.setup(width=800, height=600)
 # screen title
 screen.title("Pong Game")
+# turn off the turtle animation
+screen.tracer(0)
 
 # TODO: Create and move a paddle
 
@@ -35,6 +37,29 @@ paddle.shapesize(stretch_wid=5, stretch_len=1)
 paddle.penup()
 # set up the default position
 paddle.goto(350, 0)
+
+
+# move the paddle up and down function
+def go_up():
+    new_y = paddle.ycor() + 20
+    paddle.goto(paddle.xcor(), new_y)
+
+
+def go_down():
+    new_y = paddle.ycor() - 20
+    paddle.goto(paddle.xcor(), new_y)
+
+
+# event listener for keypress
+screen.listen()
+screen.onkey(go_up, "Up")
+screen.onkey(go_down, "Down")
+
+# game is on
+game_is_on = True
+
+while game_is_on:
+    screen.update()
 
 # screen exit
 screen.exitonclick()
