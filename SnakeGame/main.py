@@ -9,8 +9,9 @@
 8. detect collision with tail
 """
 
-from turtle import Turtle, Screen
+from turtle import Screen
 from snake import Snake
+from food import Food
 import time
 
 # creating a object
@@ -28,8 +29,12 @@ screen.title("Snake Game")
 
 # turn off the turtle animation 
 screen.tracer(0)
+
 # create snake object
 snake = Snake()
+
+# create food object
+food = Food()
 
 # TODO: control the snake with keypress
 # start listen the keypress
@@ -47,6 +52,10 @@ while game_is_on:
     time.sleep(0.1)
     # move the snake
     snake.move()
+
+    # Detect collision with food
+    if snake.head.distance(food) < 15:
+        food.refresh()
 
 # exit on click
 screen.exitonclick()
