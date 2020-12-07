@@ -28,9 +28,11 @@ class Scoreboard(Turtle):
         self.write(self.right_score, align=ALIGNMENT, font=FONT)
 
     def left_point(self):
+        """Return left score by plus 1"""
         self.left_score += 1
         self.update_scoreboard()
 
     def right_point(self):
+        """Return right score by plus 1"""
         self.right_score += 1
         self.update_scoreboard()
