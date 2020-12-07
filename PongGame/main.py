@@ -11,6 +11,7 @@
 """
 
 from turtle import Screen, Turtle
+from paddle import Paddle
 
 # TODO: Create the screen
 # create screen object
@@ -26,34 +27,18 @@ screen.tracer(0)
 
 # TODO: Create and move a paddle
 
+right_paddle = Paddle((350, 0))
+left_paddle = Paddle((-350, 0))
+
 # creating a paddle object
 paddle = Turtle()
-# add paddle shape
-paddle.shape("square")
-# add paddle color
-paddle.color("white")
-# change the paddle shape size
-paddle.shapesize(stretch_wid=5, stretch_len=1)
-paddle.penup()
-# set up the default position
-paddle.goto(350, 0)
-
-
-# move the paddle up and down function
-def go_up():
-    new_y = paddle.ycor() + 20
-    paddle.goto(paddle.xcor(), new_y)
-
-
-def go_down():
-    new_y = paddle.ycor() - 20
-    paddle.goto(paddle.xcor(), new_y)
-
 
 # event listener for keypress
 screen.listen()
-screen.onkey(go_up, "Up")
-screen.onkey(go_down, "Down")
+screen.onkey(right_paddle.go_up, "Up")
+screen.onkey(right_paddle.go_down, "Down")
+screen.onkey(left_paddle.go_up, "w")
+screen.onkey(left_paddle.go_down, "s")
 
 # game is on
 game_is_on = True
