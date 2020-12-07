@@ -41,8 +41,10 @@ paddle = Turtle()
 
 # event listener for keypress
 screen.listen()
+# right side player
 screen.onkey(right_paddle.go_up, "Up")
 screen.onkey(right_paddle.go_down, "Down")
+# left side player
 screen.onkey(left_paddle.go_up, "w")
 screen.onkey(left_paddle.go_down, "s")
 
@@ -53,6 +55,14 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     ball.move()
+
+    # TODO: Detect collision with wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce_y()
+
+    # TODO: Detect collision with the paddle
+    if ball.distance(right_paddle) < 50 and ball.xcor() > 320 or ball.distance(left_paddle) < 50 and ball.xcor() < -320:
+        ball.bounce_x()
 
 # screen exit
 screen.exitonclick()
