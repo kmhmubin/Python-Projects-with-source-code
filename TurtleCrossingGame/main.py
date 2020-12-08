@@ -31,13 +31,13 @@ player = Player()
 # creating car objects
 car_manager = CarManager()
 
-# TODO: Listen the keypress
-screen.listen()
-screen.onkey(player.go_up, "Up")
-
 # TODO: Create scoreboard
 # creating scoreboard object
 scoreboard = Scoreboard()
+
+# TODO: Listen the keypress
+screen.listen()
+screen.onkey(player.go_up, "Up")
 
 # game on or not
 is_game_on = True
@@ -56,6 +56,12 @@ while is_game_on:
         if car.distance(player) < 20:
             is_game_on = False
             scoreboard.game_over()
+
+    # TODO: Detect successful crossing
+    if player.is_at_finish_line():
+        player.go_to_start()
+        car_manager.level_up()
+        scoreboard.increase_level()
 
 # exit on click on the screen
 screen.exitonclick()
