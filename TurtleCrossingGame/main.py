@@ -27,6 +27,18 @@ screen.tracer(0)
 # creating player object
 player = Player()
 
+# TODO: Create Cars
+# creating car objects
+car_manager = CarManager()
+
+# TODO: Listen the keypress
+screen.listen()
+screen.onkey(player.go_up, "Up")
+
+# TODO: Create scoreboard
+# creating scoreboard object
+scoreboard = Scoreboard()
+
 # game on or not
 is_game_on = True
 
@@ -34,3 +46,7 @@ while is_game_on:
     time.sleep(0.1)
     # update the screen
     screen.update()
+
+    # creating cars and move it
+    car_manager.create_car()
+    car_manager.move_car()
