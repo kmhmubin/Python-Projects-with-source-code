@@ -8,10 +8,9 @@ STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
 
 
-# car class which inherit Turtle classes
-class CarManager(Turtle):
+# car class
+class CarManager:
     def __init__(self):
-        super(CarManager, self).__init__()
         self.all_cars = []
         self.car_speed = STARTING_MOVE_DISTANCE
 
