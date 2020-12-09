@@ -11,5 +11,14 @@ screen.addshape(image)
 # changing turtle shape
 turtle.shape(image)
 
+
+# get the coordinates from mouse click
+def get_mouse_click_coor(x, y):
+    print(x, y)
+
+
+turtle.onscreenclick(get_mouse_click_coor)
+turtle.mainloop()
+
 # screen exit on click
-screen.exitonclick()
+# screen.exitonclick()
