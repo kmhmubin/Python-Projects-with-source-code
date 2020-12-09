@@ -33,6 +33,11 @@ turtle.shape(image)
 # turtle.onscreenclick(get_mouse_click_coor)
 # turtle.mainloop()
 
+# read csv file using pandas
+data = pandas.read_csv("50_states.csv")
+# assigning all state's to a list
+all_states = data.state.to_list()
+
 # popup input option
 answer_state = screen.textinput(title="Guess the state", prompt="What's another state's name?")
 print(answer_state)
