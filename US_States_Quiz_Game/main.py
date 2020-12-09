@@ -45,7 +45,18 @@ while len(guessed_states) < 50:
                                                                                              "name?").title()
     print(answer_state)
 
-    # checking answer with the csv file
+    # exit the game
+    if answer_state == "Exit":
+        # after game finish show the missing states
+        missing_states = []
+        for state in all_states:
+            if state not in guessed_states:
+                missing_states.append(state)
+        # create new missing state file
+        new_data = pandas.DataFrame(missing_states)
+        new_data.to_csv("States to learn.csv")
+        break
+        # checking answer with the csv file
     if answer_state in all_states:
         # add answer into guessed state list
         guessed_states.append(answer_state)
