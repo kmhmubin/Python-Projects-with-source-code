@@ -1,4 +1,5 @@
 from tkinter import *
+import math
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -14,11 +15,26 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 
+
 # ---------------------------- TIMER RESET ------------------------------- #
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
+def start_timer():
+    # 5 minutes
+    count_down(5 * 60)
+
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
+def count_down(count):
+    # covert counter into time
+    count_minute = math.floor(count / 60)
+    count_seconds = count % 60
+
+    # replace the canvas timer text
+    canvas.itemconfig(timer_text, text=f"{count_minute}:{count_seconds}")
+    if count > 0:
+        window.after(1000, count_down, count - 1)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 # creating window
@@ -42,13 +58,14 @@ tomato_img = PhotoImage(file="tomato.png")
 # add image in the canvas in the center by "/" half of the dimension
 canvas.create_image(100, 112, image=tomato_img)
 # add text on the top of tomato photo and customize text values
-canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 # show the canvas on the window
 canvas.grid(column=1, row=1)
 
 # TODO: Creating Buttons
-# start button, remove border
-start_button = Button(text="Start", bg=DEEP_GREEN, fg=WHITE, highlightthickness=0, font=(BUTTON_FONT, 15, "bold"))
+# start button, remove border, add custom style and font and command key
+start_button = Button(text="Start", bg=DEEP_GREEN, fg=WHITE, highlightthickness=0, font=(BUTTON_FONT, 15, "bold"),
+                      command=start_timer)
 # start button position
 start_button.grid(column=0, row=2)
 # reset button
