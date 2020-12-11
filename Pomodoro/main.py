@@ -11,7 +11,7 @@ YELLOW = "#f7f5dd"
 ORANGE = "#ec524b"
 FONT_NAME = "Courier"
 BUTTON_FONT = "Consolas"
-WORK_MIN = 25
+WORK_MIN = 1
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
@@ -56,6 +56,11 @@ def count_down(count):
         window.after(1000, count_down, count - 1)
     else:
         start_timer()
+        marks = ""
+        work_sessions = math.floor(reps / 2)
+        for _ in range(work_sessions):
+            marks += "✔"
+        check_mark.config(text=marks)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -96,7 +101,7 @@ reset_button.grid(column=2, row=2)
 
 # TODO: Checkmark Show
 # show checkmark icons
-check_mark = Label(text="✔", fg=GREEN, bg=YELLOW, font=10)
+check_mark = Label(fg=GREEN, bg=YELLOW, font=10)
 # position of the checkmark icons
 check_mark.grid(column=1, row=3)
 
