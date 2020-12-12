@@ -55,15 +55,19 @@ password_label.grid(row=3, column=0)
 
 # TODO: Labels entry
 # website entry
-website_entry = Entry(width=65)
+website_entry = Entry(width=55, font=COURIER_FONT)
 # website entry placement
 website_entry.grid(row=1, column=1, columnspan=2)
+# focus the website entry
+website_entry.focus()
 # email entry
-email_entry = Entry(width=65)
+email_entry = Entry(width=55, font=COURIER_FONT)
 # email entry placement on grid
-email_entry.grid(row=2, column=1, columnspan=2)
+email_entry.grid(row=2, column=1, columnspan=2, padx=10, pady=10)
+# pre populated value
+email_entry.insert(0, "example@example.com")
 # password entry
-password_entry = Entry(width=49)
+password_entry = Entry(width=43, font=COURIER_FONT)
 # password entry placement on grid
 password_entry.grid(row=3, column=1)
 
@@ -75,8 +79,8 @@ generate_password_button = Button(text="Generate", font=COURIER_FONT, bg=LIGHT_S
 generate_password_button.grid(row=3, column=2)
 
 # add password on file button
-save_button = Button(text="Save", width=39, bg=GREENISH_YELLOW, font=COURIER_FONT)
+save_button = Button(text="Save", width=55, bg=GREENISH_YELLOW, font=COURIER_FONT)
 # save button placement on the grid
-save_button.grid(row=4, column=1, columnspan=2)
+save_button.grid(row=4, column=1, columnspan=2, padx=10, pady=10)
 # window run
 window.mainloop()
