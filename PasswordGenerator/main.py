@@ -1,6 +1,7 @@
 # PASSWORD GENERATOR
-from random import choice, randint, shuffle
+import pyperclip
 from tkinter import *
+from random import choice, randint, shuffle
 
 from tkinter import messagebox
 
@@ -37,6 +38,8 @@ def password_generator():
     password = "".join(password_list)
     # show generated password in the password label field
     password_entry.insert(0, password)
+    # copy password on the clipboard automatically
+    pyperclip.copy(password)
 
 
 # ------------------- SAVED PASSWORD ----------------------------- #
