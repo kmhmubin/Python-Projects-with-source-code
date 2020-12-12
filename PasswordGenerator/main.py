@@ -1,7 +1,10 @@
 # PASSWORD GENERATOR
 from tkinter import *
 
+from tkinter import messagebox
+
 # ------ CONSTANT ---- #
+
 GREENISH_YELLOW = "#E6EDB7"
 GREENISH_WHITE = "#FDFCEF"
 LIGHT_SKY = "#C0E5E4"
@@ -18,11 +21,18 @@ def save():
     website = website_entry.get()
     email = email_entry.get()
     password = password_entry.get()
-
-    with open("data.txt", "a") as data_file:
-        data_file.write(f"{website} | {email} | {password} \n")
-        website_entry.delete(0, END)
-        password_entry.delete(0, END)
+    # checking empty fields
+    if len(website) == 0 or len(password) == 0:
+        messagebox.showinfo(title="Opps", message=" Please fill up the empty fields.")
+    else:
+        is_ok = messagebox.askokcancel(title=website,
+                                       message=f"Is It Correct Info \n Email: {email} " f"\n Password: {password} \nIs "
+                                               f"it ok to save?")
+        if is_ok:
+            with open("data.txt", "a") as data_file:
+                data_file.write(f"{website} | {email} | {password} \n")
+                website_entry.delete(0, END)
+                password_entry.delete(0, END)
 
 
 # ------------------- UI SETUP ----------------------------- #
