@@ -36,12 +36,14 @@ class QuizInterface:
 
         # true button
         true_image = PhotoImage(file="images/tick.png")
-        self.true_button = Button(image=true_image, bg=THEME_COLOR, highlightthickness=0, borderwidth=0)
+        self.true_button = Button(image=true_image, bg=THEME_COLOR, highlightthickness=0, borderwidth=0,
+                                  command=self.true_pressed)
         self.true_button.grid(row=2, column=1)
 
         # false button
         false_image = PhotoImage(file="images/cross.png")
-        self.false_button = Button(image=false_image, bg=THEME_COLOR, highlightthickness=0, borderwidth=0)
+        self.false_button = Button(image=false_image, bg=THEME_COLOR, highlightthickness=0, borderwidth=0,
+                                   command=self.false_pressed)
         self.false_button.grid(row=2, column=0)
 
         # get the next question from quiz bank
@@ -52,3 +54,9 @@ class QuizInterface:
     def get_next_question(self):
         question_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=question_text)
+
+    def true_pressed(self):
+        self.quiz.check_answer("True")
+
+    def false_pressed(self):
+        self.quiz.check_answer("False")
