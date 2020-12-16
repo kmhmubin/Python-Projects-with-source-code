@@ -1,10 +1,20 @@
 from tkinter import *
+import requests
 
 
 # --------------------- GET QUOTES -------------------------- #
 
 def get_quote():
-    pass
+    # request a response to the api
+    response = requests.get("https://api.kanye.rest")
+    # check the status code
+    response.raise_for_status()
+    # getting data from response
+    data = response.json()
+    # selecting specific data
+    quote = data["quote"]
+    # change the text in canvas
+    canvas.itemconfig(quote_text, text=quote)
 
 
 # --------------------- UI SETUP ----------------------------- #
@@ -30,7 +40,7 @@ canvas.grid(row=0, column=0)
 
 # kanye image button
 kanye_image = PhotoImage(file="kanye.png")
-kanye_button = Button(image=kanye_image, highlightthickness=0, border=0,command=get_quote)
+kanye_button = Button(image=kanye_image, highlightthickness=0, border=0, command=get_quote)
 kanye_button.grid(row=1, column=0)
 
 # window running
