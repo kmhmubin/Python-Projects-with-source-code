@@ -1,10 +1,14 @@
 # international Space Station Tracker
 import requests
 from datetime import datetime
+import smtplib
+import time
 
 # Constant values of my latitudes and Longitude
 MY_LAT = 23.870013
 MY_LONG = 90.408708
+EMAIL = "example@example.com"
+PASS = "123456789"
 
 
 def is_iss_overhead():
@@ -42,3 +46,20 @@ def is_night():
     # check the time
     if time_now >= sunset or time_now <= sunrise:
         return True
+
+
+while True:
+    # wait 60 s
+    time.sleep(60)
+    # if it's night time and iss in my position then sent a notification mail
+    if is_iss_overhead() and is_night():
+        # connecting the gmail server
+        connection = smtplib.SMTP("smtp.gmail.com")
+        connection.starttls()
+        connection.login(EMAIL, PASS)
+        # send the mail
+        connection.sendmail(
+            from_addr=EMAIL,
+            to_addrs=EMAIL,
+            msg="Subject: Look Up \n\n The ISS is above you in the sky."
+        )
