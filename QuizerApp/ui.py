@@ -54,9 +54,21 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
+        # reset the canvas color
         self.canvas.config(bg=CANVAS_BG)
-        question_text = self.quiz.next_question()
-        self.canvas.itemconfig(self.question_text, text=question_text)
+        # check if there are any questions
+        if self.quiz.still_has_question():
+            # keep update the score
+            self.score_label.config(text=f"Score: {self.quiz.score}")
+            # assign the question to the variable
+            question_text = self.quiz.next_question()
+            # replace the text in the canvas
+            self.canvas.itemconfig(self.question_text, text=question_text)
+        else:
+            self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz.")
+            # disable the buttons
+            self.true_button.config(state="disable")
+            self.false_button.config(state="disable")
 
     def true_pressed(self):
         self.give_feedback(self.quiz.check_answer("True"))
