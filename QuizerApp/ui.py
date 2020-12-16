@@ -6,6 +6,8 @@ THEME_COLOR = "#9ba4b4"
 SCORE_COLOR = "#14274e"
 CANVAS_BG = "#f1f6f9"
 BAHNSCHRIFT = "Bahnschrift"
+GREEN = "#8CE5C3"
+RED = "#FF5576"
 
 
 # ------------------ Class --------------------- #
@@ -52,11 +54,20 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
+        self.canvas.config(bg=CANVAS_BG)
         question_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=question_text)
 
     def true_pressed(self):
-        self.quiz.check_answer("True")
+        self.give_feedback(self.quiz.check_answer("True"))
 
     def false_pressed(self):
-        self.quiz.check_answer("False")
+        is_right = self.quiz.check_answer("False")
+        self.give_feedback(is_right)
+
+    def give_feedback(self, is_right):
+        if is_right:
+            self.canvas.config(bg=GREEN)
+        else:
+            self.canvas.config(bg=RED)
+        self.window.after(1000, self.get_next_question)
