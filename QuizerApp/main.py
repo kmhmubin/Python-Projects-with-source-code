@@ -17,7 +17,7 @@ for question in question_data:
 quiz = QuizBrain(question_bank)
 
 # initilize the UI
-quiz_ui = QuizInterface()
+quiz_ui = QuizInterface(quiz)
 
 # is quiz running
 while quiz.still_has_question():

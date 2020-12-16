@@ -1,4 +1,5 @@
 from tkinter import *
+from quiz_brain import QuizBrain
 
 # ------------- CONSTANT -------------------------- #
 THEME_COLOR = "#9ba4b4"
@@ -11,7 +12,9 @@ BAHNSCHRIFT = "Bahnschrift"
 
 class QuizInterface:
 
-    def __init__(self):
+    def __init__(self, quiz_brain: QuizBrain):
+        # grab the quiz brain
+        self.quiz = quiz_brain
         # assign the tkinter class
         self.window = Tk()
         # window title
@@ -26,7 +29,7 @@ class QuizInterface:
         # creating a canvas
         self.canvas = Canvas(width=300, height=250, bg=CANVAS_BG)
         # question text
-        self.question_text = self.canvas.create_text(150, 125, text="Some Question text", fill=SCORE_COLOR,
+        self.question_text = self.canvas.create_text(150, 125, width=280, text="Some Question text", fill=SCORE_COLOR,
                                                      font=(BAHNSCHRIFT, 20, "italic"))
         # canvas grid
         self.canvas.grid(row=1, column=0, columnspan=2, pady=50)
@@ -40,5 +43,12 @@ class QuizInterface:
         false_image = PhotoImage(file="images/cross.png")
         self.false_button = Button(image=false_image, bg=THEME_COLOR, highlightthickness=0, borderwidth=0)
         self.false_button.grid(row=2, column=0)
+
+        # get the next question from quiz bank
+        self.get_next_question()
         # run the program
         self.window.mainloop()
+
+    def get_next_question(self):
+        question_text = self.quiz.next_question()
+        self.canvas.itemconfig(self.question_text, text=question_text)
