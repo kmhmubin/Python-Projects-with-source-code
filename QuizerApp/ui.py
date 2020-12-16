@@ -24,7 +24,7 @@ class QuizInterface:
         # add padding to the window
         self.window.config(padx=20, pady=20, bg=THEME_COLOR)
         # add score label text
-        self.score_label = Label(text="Score: 0", fg=SCORE_COLOR, bg=THEME_COLOR, font=BAHNSCHRIFT)
+        self.score_label = Label(text="Score: 0", fg=SCORE_COLOR, bg=THEME_COLOR, font=(BAHNSCHRIFT, 15, "bold"))
         # assign label on the window grid
         self.score_label.grid(row=0, column=1)
 
