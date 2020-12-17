@@ -8,7 +8,7 @@ STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
 # API KEYS
-STOCK_API_KEY = os.getenv('STOCK_API')
+STOCK_API_KEY = "EYYHCJH0RGV5H0C0"
 
 ## STEP 1: Use https://www.alphavantage.co/documentation/#daily
 # When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
@@ -30,7 +30,9 @@ yesterday_closing_price = yesterday_data["4. close"]
 print(yesterday_closing_price)
 
 # TODO 2. - Get the day before yesterday's closing stock price
-
+day_before_yesterday_data = stock_data_list[1]
+day_before_yesterday_closing_price = day_before_yesterday_data["4. close"]
+print(day_before_yesterday_closing_price)
 # TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20.
 #  Hint: https://www.w3schools.com/python/ref_func_abs.asp
 
