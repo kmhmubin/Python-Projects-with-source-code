@@ -15,8 +15,8 @@ account_sid = os.getenv("ACCOUNT_SID")
 auth_token = os.getenv("AUTH_TOKEN")
 
 weather_parameters = {
-    "lat": 1.352083,
-    "lon": 103.819839,
+    "lat": 23.808277,
+    "lon": 90.413209,
     "appid": API_KEY,
     "exclude": "current,minutely,daily",
 }
