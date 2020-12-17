@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 
 # PIXELA API CONSTANTS
 
@@ -49,13 +50,14 @@ headers = {
 
 # Create pixel data
 
+# get today date
+today = datetime(year=2020, month=12, day=23)
+
 pixel_data = {
-    "date": "20201217",
+    "date": today.strftime("%Y%m%d"),
     "quantity": "7.2",
 }
 
 # # sent request and create pixel
 pixel_response = requests.post(url=PIXELA_ENDPOINT, json=pixel_data, headers=headers)
 print(pixel_response.text)
-
-
