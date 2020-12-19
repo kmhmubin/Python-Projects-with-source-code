@@ -4,17 +4,17 @@ from datetime import datetime
 
 # Constant for apis
 
-APP_ID = os.environ["NT_APP_ID"]
-API_KEY = os.environ["NT_APP_KEY"]
+APP_ID = "0a2b2c85"
+API_KEY = "02462c197f879c28a08f5c389fc83d87"
 
 NUTRITIONIX_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
 # Sheety api endpoint
-SHEETY_ENDPOINT = os.environ["SHEETY_ENDPOINT"]
+SHEETY_ENDPOINT = "https://api.sheety.co/7bdab4900d8f11059efacc57af848a27/myWorkouts/workouts"
 
 # sheet authentication
-USERNAME = os.environ["USERNAME"]
-PASSWORD = os.environ["PASSWORD"]
+USERNAME = "coderuseless"
+PASSWORD = "CUCl*8ry0CB&7P*elas$"
 
 # constant for user
 GENDER = "male"
