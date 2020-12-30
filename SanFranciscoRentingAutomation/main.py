@@ -71,3 +71,8 @@ address = driver.find_element_by_xpath(
 # adding the data automatically from the website
 address.send_keys(all_address[0])
 
+# select the price input field
+price = driver.find_element_by_xpath(
+    '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
+# adding the data automatically from the website
+price.send_keys(all_prices[0])
