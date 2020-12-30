@@ -55,3 +55,19 @@ all_address = [address.get_text().split(" | ")[-1] for address in all_address_el
 all_price_elements = soup.select(".list-card-details li")
 all_prices = [price.get_text().split("+")[0] for price in all_price_elements if "$" in price.text]
 # print(all_prices)
+
+
+# go to google forms link and fill the forms and submit
+
+# goto forms link
+driver.get(
+    "https://docs.google.com/forms/d/e/1FAIpQLSfo9ZPPtZaxa28RWbGsk77tJecQXumIyqRYR9zJVvscH6kZbQ/viewform?usp=sf_link")
+
+time.sleep(2)
+
+# select the address input field
+address = driver.find_element_by_xpath(
+    '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
+# adding the data automatically from the website
+address.send_keys(all_address[0])
+
