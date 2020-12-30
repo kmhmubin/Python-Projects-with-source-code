@@ -59,32 +59,38 @@ all_prices = [price.get_text().split("+")[0] for price in all_price_elements if 
 
 # go to google forms link and fill the forms and submit
 
-# goto forms link
-driver.get(
-    "https://docs.google.com/forms/d/e/1FAIpQLSfo9ZPPtZaxa28RWbGsk77tJecQXumIyqRYR9zJVvscH6kZbQ/viewform?usp=sf_link")
+# loop until all links are filled
 
-time.sleep(2)
+for n in range(len(all_link)):
+    # goto forms link
+    driver.get(
+        "https://docs.google.com/forms/d/e/1FAIpQLSfo9ZPPtZaxa28RWbGsk77tJecQXumIyqRYR9zJVvscH6kZbQ/viewform?usp=sf_link")
 
-# select the address input field
-address = driver.find_element_by_xpath(
-    '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
-# adding the data automatically from the website
-address.send_keys(all_address[0])
+    time.sleep(2)
 
-# select the price input field
-price = driver.find_element_by_xpath(
-    '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
-# adding the data automatically from the website
-price.send_keys(all_prices[0])
+    # select the address input field
+    address = driver.find_element_by_xpath(
+        '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
 
-# select the link input field
-link = driver.find_element_by_xpath(
-    '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
-# add the data automatically from the website
-link.send_keys(all_link[0])
+    # select the price input field
+    price = driver.find_element_by_xpath(
+        '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
 
-# select the submit button
-submit_button = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div/div')
+    # select the link input field
+    link = driver.find_element_by_xpath(
+        '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
 
-# click the submit button
-submit_button.click()
+    # select the submit button
+    submit_button = driver.find_element_by_xpath('//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div/div')
+
+    # adding the data automatically from the website
+    address.send_keys(all_address[n])
+
+    # adding the data automatically from the website
+    price.send_keys(all_prices[n])
+
+    # add the data automatically from the website
+    link.send_keys(all_link[n])
+
+    # click the submit button
+    submit_button.click()
