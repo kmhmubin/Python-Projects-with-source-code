@@ -10,5 +10,4 @@
 
 ### DEMO
 
-[Imgur](https://imgur.com/WRYvqoX)
-[video](https://i.imgur.com/WRYvqoX.mp4)
+![video](https://i.imgur.com/WRYvqoX.mp4)
