@@ -10,4 +10,4 @@
 
 ### DEMO
 
-![Demo](https://imgur.com/WRYvqoX)
+[Imgur](https://imgur.com/WRYvqoX)
