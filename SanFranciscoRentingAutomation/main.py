@@ -39,9 +39,14 @@ all_link = []
 # garb all the link and save it into the list
 for link in all_link_elements:
     href = link["href"]
-    print(href)
+    # print(href)
     # if http not found then append in the list
     if "http" not in href:
         all_link.append(f"https://www.zillow.com{href}")
     else:
         all_link.append(href)
+
+# grab all the address of the links
+all_address_elements = soup.select(".list-card-info address")
+all_address = [address.get_text().split(" | ")[-1] for address in all_address_elements]
+# print(all_address)
