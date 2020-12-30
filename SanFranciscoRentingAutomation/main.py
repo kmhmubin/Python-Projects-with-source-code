@@ -50,3 +50,8 @@ for link in all_link_elements:
 all_address_elements = soup.select(".list-card-info address")
 all_address = [address.get_text().split(" | ")[-1] for address in all_address_elements]
 # print(all_address)
+
+# grab all the prices from link
+all_price_elements = soup.select(".list-card-details li")
+all_prices = [price.get_text().split("+")[0] for price in all_price_elements if "$" in price.text]
+# print(all_prices)
