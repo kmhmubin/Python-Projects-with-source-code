@@ -1,6 +1,7 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import ElementClickInterceptedException
 
 CHROME_DRIVER_PATH = "C:\chromedriver\chromedriver.exe"
 SIMILAR_ACCOUNT = "akifahi"
@@ -48,7 +49,14 @@ class InstaFollower:
             time.sleep(3)
 
     def follow(self):
-        pass
+        all_button = self.driver.find_element_by_css_selector('li button')
+        for button in all_button:
+            try:
+                button.click()
+                time.sleep(2)
+            except ElementClickInterceptedException:
+                cancel_button = self.driver.find_element_by_xpath('/html/body/div[5]/div/div/div/div[3]/button[2]')
+                cancel_button.click()
 
 
 # main driver
