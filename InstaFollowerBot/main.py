@@ -29,7 +29,23 @@ class InstaFollower:
         password.send_keys(Keys.ENTER)
 
     def find_follower(self):
-        pass
+        time.sleep(5)
+        self.driver.get(f"https://www.instagram.com/{SIMILAR_ACCOUNT}")
+
+        time.sleep(2)
+        # find the followers button
+        followers = self.driver.find_element_by_xpath(
+            '//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a')
+        followers.click()
+
+        time.sleep(3)
+
+        modal = self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]')
+
+        for i in range(10):
+            # execute JavaScript script for scroll the top of the modal
+            self.driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", modal)
+            time.sleep(3)
 
     def follow(self):
         pass
