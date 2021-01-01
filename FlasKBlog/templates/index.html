@@ -2,14 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Blog</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+    <title>Flask Blog</title>
+
 </head>
 <body>
-<main>
-    <section>
-        <h1>Flask Blog</h1>
-    </section>
-</main>
+
+<section class="wrapper">
+    <div class="top">
+        <div class="title">
+            <h1>Flask Blog</h1>
+        </div>
+    </div>
+    <!-- generate blog from api -->
+
+    {% for post in all_posts: %}
+        <div class="content">
+            <div class="card">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.subtitle }}</p>
+                <a href="{{ url_for('show_post', index=post.id) }}"></a>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+
 <footer>
     <p>Copyright {{ year }} Build By Mubin At Home</p>
 </footer>
