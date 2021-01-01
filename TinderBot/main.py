@@ -5,8 +5,8 @@ from time import sleep
 from selenium.common.exceptions import ElementClickInterceptedException, NoSuchElementException
 
 # constant values
-EMAIL = "Your Email Address"
-PASSWORD = "Your Password"
+EMAIL = "kmhmubin@gmail.com"
+PASSWORD = "01515621057"
 
 chrome_driver_path = "C:\chromedriver\chromedriver.exe"
 driver = webdriver.Chrome(executable_path=chrome_driver_path)
