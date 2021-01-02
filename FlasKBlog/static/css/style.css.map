@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AGAA,AAAA,IAAI,AAAC,CACH,SAAS,CAAE,IAAI,CACf,KAAK,CFSI,OAAO,CCoDhB,WAAW,CAAE,gCAAgC,CC3D9C",
+    "sources": [
+        "../scss/style.scss",
+        "../scss/_variables.scss",
+        "../scss/_mixins.scss",
+        "../scss/_global.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}

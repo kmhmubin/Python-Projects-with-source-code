@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
-    <title>Flask Blog</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Flask Bootstrap 5 blog" />
+    <meta name="author" content="K M H Mubin" />
+    <title>Flask Bootstrap Blog</title>
+    <!-- bootstrap 5 CSS -->
+    <link rel="stylesheet" href="/static/vendor/bs5/css/bootstrap.min.css" />
 
-</head>
-<body>
+    <!-- font awesome 5 -->
+    <link rel="stylesheet" href="/static/vendor/fa5/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-<section class="wrapper">
-    <div class="top">
-        <div class="title">
-            <h1>Flask Blog</h1>
-        </div>
-    </div>
-    <!-- generate blog from api -->
-
-    {% for post in all_posts: %}
-        <div class="content">
-            <div class="card">
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.subtitle }}</p>
-                <a href="{{ url_for('show_post', index=post.id) }}"></a>
-            </div>
-        </div>
-    {% endfor %}
-</section>
-
-
-<footer>
-    <p>Copyright {{ year }} Build By Mubin At Home</p>
-</footer>
-</body>
+    <!-- custom design css -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <!-- bootstrap 5 JavaScript -->
+    <script src="/static/vendor/bs5/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

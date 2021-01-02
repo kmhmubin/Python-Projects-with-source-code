@@ -1,0 +1,5 @@
+body {
+  font-size: 20px;
+  color: $gray-900;
+  @include serif-font;
+}
