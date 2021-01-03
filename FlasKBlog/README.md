@@ -29,3 +29,15 @@ A simple and full responsive Bootstrap blog.
     ```bash
     flask run
     ```
+
+
+## Demo 
+
+### Desktop
+
+![Desktop](https://github.com/kmhmubin/Python-Projects/blob/master/FlasKBlog/Demo/Screenshot_2021-01-03%20Flask%20Blog.png)
+
+
+### Mobile
+
+![Mobile](https://github.com/kmhmubin/Python-Projects/blob/master/FlasKBlog/Demo/Screenshot_2021-01-03%20Flask%20Blog(1).png)
