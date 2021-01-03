@@ -9,7 +9,11 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="page-heading">
-                    <h1>Contact Me</h1>
+                    {% if message_sent: %}
+                        <h1>Successfully sent your message.</h1>
+                    {% else: %}
+                        <h1>Contact Me</h1>
+                    {% endif %}
                     <span class="subheading">Have questions? I have answers.</span>
                 </div>
             </div>
@@ -26,7 +30,7 @@
                 and I will get back to you as soon as possible!
             </p>
 
-            <form name="sentMessage" id="contactForm" novalidate>
+            <form name="sentMessage" id="contactForm" action="{{ url_for('contact') }}" method="post" novalidate>
                 <div class="control-group">
                     <div class="form-group floating-label-form-group controls">
                         <label>Name</label>
