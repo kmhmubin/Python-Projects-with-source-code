@@ -1,6 +1,6 @@
 # A Bootstrap Theme Blog Powered By Flask 
 
-A simple and full responsive Bootstrap blog.
+A simple and full responsive Bootstrap blog powered by Flask.
 
 ##  Technologies
 
