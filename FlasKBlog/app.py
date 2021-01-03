@@ -6,8 +6,8 @@ import smtplib
 posts = requests.get("https://api.npoint.io/493622f5077bee2314fa").json()
 
 # constant
-OWN_EMAIL = "YOUR OWN Email"
-OWN_PASSWORD = "YOUR OWN PASSWORD"
+OWN_EMAIL = "Your Email Address"
+OWN_PASSWORD = "Your Password"
 
 app = Flask(__name__)
 
@@ -31,18 +31,18 @@ def about():
     return render_template("about.html")
 
 
-# Grab all the data from contact form
-@app.route('/contact', methods=['GET', 'POST'])
+# grab all the data from contact form
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    if request.method == 'POST':
+    if request.method == "POST":
         data = request.form
         data = request.form
-        send_email(data["name"], data["phone"], data["message"])
-        return render_template("contact.html", message_sent=True)
-    return render_template("contact.html", message_sent=False)
+        send_email(data["name"], data["email"], data["phone"], data["message"])
+        return render_template("contact.html", msg_sent=True)
+    return render_template("contact.html", msg_sent=False)
 
 
-# send mail automatically when send button pressed on contact form
+# sent mail automatically with the given data
 def send_email(name, email, phone, message):
     email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage:{message}"
     with smtplib.SMTP("smtp.gmail.com") as connection:
