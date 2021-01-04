@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div class="container">
+    <h1>Login Form</h1>
+
+    <form method="post" action="{{ url_for('login') }}">
+        <!-- CSRF Protection -->
+        {{ form.csrf_token }}
+        {{ form.email.label }} {{ form.email(size=30) }}
+        {{ form.password.label }} {{ form.password(size=30) }}
+        <input type="submit" value="Login">
+    </form>
+</div>
+</body>
+</html>
