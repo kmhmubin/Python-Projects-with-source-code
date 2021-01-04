@@ -8,14 +8,22 @@
 <div class="container">
     <h1>Login Form</h1>
 
-    <form method="post" action="{{ url_for('login') }}">
+    <form method="POST" action="{{ url_for('login') }}" novalidate>
         <!-- CSRF Protection -->
         {{ form.csrf_token }}
         <p>
-            {{ form.email.label }} {{ form.email(size=30) }}
+            {{ form.email.label }} <br> {{ form.email(size=30) }}
+            <!-- checking the errors -->
+            {% for err in form.email.errors %}
+                <span style="color:red">{{ err }}</span>
+            {% endfor %}
         </p>
         <p>
-            {{ form.password.label }} {{ form.password(size=30) }}
+            {{ form.password.label }} <br> {{ form.password(size=30) }}
+            <!-- checking the errors -->
+            {% for err in form.password.errors %}
+                <span style="color:red">{{ err }}</span>
+            {% endfor %}
         </p>
         {{ form.submit }}
     </form>
