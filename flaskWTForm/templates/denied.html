@@ -1,25 +1,25 @@
-{% extends "base.html" %}
-{#custom title header#}
+<!-- inherit all style from base page -->
+
+{% extends "bootstrap/base.html" %}
+
+<!-- page title -->
 {% block title %}Denied{% endblock %}
 
-{#custom style for this page only#}
-{% block styling %}
-    {{ super() }}
-    h1{
-    color: red;
-    }
-{% endblock %}
-
-{#contents for body area#}
+<!-- body section -->
 {% block content %}
 
     <div class="container">
         <h1> Access Denied </h1>
-        <div style="width:100%;height:0;padding-bottom:75%;position:relative;">
-            <iframe src="https://giphy.com/embed/26u4m6DWqw4Zef38Y" width="100%" height="100%" style="position:absolute"
-                    frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <div class="card" style="width: 40rem;">
+            <div style="width:100%;height:0;padding-bottom:75%;position:relative;">
+
+                <iframe src="https://giphy.com/embed/26u4m6DWqw4Zef38Y" width="100%" height="100%"
+                        style="position:absolute"
+                        frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            </div>
+            <p><a href="https://giphy.com/gifs/hyperrpg-reaction-no-26u4m6DWqw4Zef38Y">via GIPHY</a></p>
         </div>
-        <p><a href="https://giphy.com/gifs/hyperrpg-reaction-no-26u4m6DWqw4Zef38Y">via GIPHY</a></p>
+
     </div>
 
 {% endblock %}

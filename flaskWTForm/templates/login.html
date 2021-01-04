@@ -1,32 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-<div class="container">
-    <h1>Login Form</h1>
+<!-- inherit all style from base page -->
 
-    <form method="POST" action="{{ url_for('login') }}" novalidate>
-        <!-- CSRF Protection -->
-        {{ form.csrf_token }}
-        <p>
-            {{ form.email.label }} <br> {{ form.email(size=30) }}
-            <!-- checking the errors -->
-            {% for err in form.email.errors %}
-                <span style="color:red">{{ err }}</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }} <br> {{ form.password(size=30) }}
-            <!-- checking the errors -->
-            {% for err in form.password.errors %}
-                <span style="color:red">{{ err }}</span>
-            {% endfor %}
-        </p>
-        {{ form.submit }}
-    </form>
-</div>
-</body>
-</html>
+{% extends 'bootstrap/base.html' %}
+
+<!-- import wtf form -->
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!-- page title -->
+{% block title %} Login {% endblock %}
+
+<!-- body section -->
+{% block content %}
+
+    <div class="container">
+        <h1>Login Form</h1>
+        <!-- creating form using bootstrap wtf -->
+        {{ wtf.quick_form(form) }}
+    </div>
+
+
+{% endblock %}
