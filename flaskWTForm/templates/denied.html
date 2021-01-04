@@ -2,6 +2,14 @@
 {#custom title header#}
 {% block title %}Denied{% endblock %}
 
+{#custom style for this page only#}
+{% block styling %}
+    {{ super() }}
+    h1{
+    color: red;
+    }
+{% endblock %}
+
 {#contents for body area#}
 {% block content %}
 

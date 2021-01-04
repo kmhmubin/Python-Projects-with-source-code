@@ -2,6 +2,16 @@
 {#custom title header#}
 {% block title %}Success{% endblock %}
 
+{#custom style for this page only#}
+{% block styling %}
+    {# inherit style from base page#}
+    {{ super() }}
+    h1{
+    color: green;
+    }
+{% endblock %}
+
+
 {#contents for body area#}
 {% block content %}
 

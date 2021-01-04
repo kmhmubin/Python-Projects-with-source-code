@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
+    <style>
+        {% block styling %}
+            body {
+                background: azure;
+            }
+        {% endblock %}
+    </style>
 </head>
 <body>
 {% block content %} {% endblock %}
