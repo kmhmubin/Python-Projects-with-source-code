@@ -1,0 +1,42 @@
+{# import flask bootstrap style#}
+{% extends 'bootstrap/base.html' %}
+
+{# import wtform #}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{# adding custom styles #}
+{% block styles %}
+    {# import everything from bootstrap #}
+    {{ super() }}
+    {#custom style link#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+
+{# Daynamically change the title of the website #}
+
+{% block title %}Add Cafes{% endblock %}
+
+{#website body content#}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-8">
+
+                <h1> Add a new cafe into the database </h1>
+
+                {# Generatating wtform automatically #}
+
+                {{ wtf.quick_form(form, novalidate=True) }}
+
+                <p class="space-above">
+                    <a href="{{ url_for('cafes') }}" class="btn btn-warning btn-lg"> See All Cafes </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

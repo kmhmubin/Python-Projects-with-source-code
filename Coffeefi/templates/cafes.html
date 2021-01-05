@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{# import flask bootstrap style#}
+{% extends 'bootstrap/base.html' %}
 
-</body>
-</html>
+{# adding custom styles #}
+{% block styles %}
+    {# import everything from bootstrap #}
+    {{ super() }}
+    {#custom style link#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+
+{# Daynamically change the title of the website #}
+
+{% block title %}All Cafes{% endblock %}
+
+{#website body content#}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                All Cafes
+
+
+                <table class="table">
+                    {% for row in cafes %}
+
+                        <tr>
+                            {% for item in row %}
+                                {% if item[0:4] == "http" %}
+                                    <td><a href="{{ item }}">Maps Link</a></td>
+                                {% else %}
+                                    <td>{{ item }}</td>
+                                {% endif %}
+
+                            {% endfor %}
+                        </tr>
+
+                    {% endfor %}
+                </table>
+                <p><a href="{{ url_for('home') }}" class="btn btn-warning btn-lg">Return to Home Page</a></p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

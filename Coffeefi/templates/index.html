@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{# import flask bootstrap style#}
+{% extends 'bootstrap/base.html' %}
 
-</body>
-</html>
+{# adding custom styles #}
+{% block styles %}
+    {# import everything from bootstrap #}
+    {{ super() }}
+    {#custom style link#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+
+{# Daynamically change the title of the website #}
+
+{% block title %}Coffee & Wi-fi{% endblock %}
+
+{#website body content#}
+
+{% block content %}
+
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h1 class="display-4">Coffee & Wi-fi</h1>
+            <p class="lead">Want to work in a cafe but need wifi?</p>
+            <hr class="my-4">
+            <p>You've found the right place! Checkout my collection of cafes with data on power socket availability,
+                wi-fi
+                speed and coffee quality.</p>
+            <a href="{{ url_for('cafes') }}" class="btn btn-warning btn-lg">Show Me</a>
+        </div>
+    </div>
+
+{% endblock %}
