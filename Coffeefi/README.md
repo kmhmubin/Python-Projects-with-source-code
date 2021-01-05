@@ -15,7 +15,7 @@ A simple Cafe list bootstrap website.
 2. Create a python environment then install all the packages from requirements file.
 3. Run the project
 
-> note: I'm using conda environment, but you can use virtualenv. 
+> note: I'm using conda environment, but you can use virtualenv.
 
 ## Demo
 
