@@ -7,6 +7,12 @@
 <body>
 <h1>My Library</h1>
 
+{#if there is no book then show empty message#}
+
+{% if books ==[]: %}
+    <p>Library is empty</p>
+{% endif %}
+
 <ul>
     {% for book in books %}
         <li>{{ book.title }} - {{ book.author }} - {{ book.rating }}/10</li>

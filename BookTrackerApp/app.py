@@ -18,9 +18,9 @@ def home():
 def add():
     if request.method == "POST":
         new_book = {
-            "title": request.form["title"],
-            "author": request.form["author"],
-            "rating": request.form["rating"]
+            "title": request.form["title"].title(),
+            "author": request.form["author"].title(),
+            "rating": request.form["rating"].title()
         }
         # save in the empty list
         all_books.append(new_book)
