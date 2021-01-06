@@ -27,7 +27,9 @@ db.create_all()
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    # read all the record and show in the home page
+    all_books = db.session.query(Book).all()
+    return render_template('index.html', books=all_books)
 
 
 @app.route('/add', methods=["GET", "POST"])
@@ -35,9 +37,9 @@ def add():
     if request.method == "POST":
         # create records
         new_book = Book(
-            title=request.form["title"],
-            author=request.form["author"],
-            rating=request.form["rating"]
+            title=request.form["title"].title(),
+            author=request.form["author"].title(),
+            rating=request.form["rating"].title()
         )
         # save record into db
         db.session.add(new_book)
