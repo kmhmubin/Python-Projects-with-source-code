@@ -70,5 +70,21 @@ def edit():
     return render_template('edit.html', book=book_selected)
 
 
+@app.route('/delete')
+def delete():
+    # grab the book id from db
+    book_id = request.args.get('id')
+
+    # delete the record from db
+    # checking the id with db
+    book_to_delete = Book.query.get(book_id)
+    # delete the book if id match
+    db.session.delete(book_to_delete)
+    # commit the changes in db
+    db.session.commit()
+    # go back to home page
+    return redirect(url_for('home'))
+
+
 if __name__ == '__main__':
     app.run()
