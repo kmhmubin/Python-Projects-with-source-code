@@ -18,6 +18,10 @@ body {
     background-attachment: fixed;
 }
 
+a{
+    text-decoration: none;
+}
+
 .large {
     font-size: 3rem;
 }
