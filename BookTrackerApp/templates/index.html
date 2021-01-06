@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Book Tracker</title>
 </head>
 <body>
+<h1>My Library</h1>
 
+<ul>
+    {% for book in books %}
+        <li>{{ book.title }} - {{ book.author }} - {{ book.rating }}/10</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('add') }}">Add New book</a>
 </body>
 </html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Add</title>
+</head>
+<body>
+<form action="{{ url_for('add') }}" method="POST">
+    <lable>Book Name</lable>
+    <input name="title" type="text">
+    <lable>Author Name</lable>
+    <input name="author" type="text">
+    <lable>Rating</lable>
+    <input name="rating" type="text">
+    <button type="submit">Add Book</button>
+</form>
+</body>
+</html>
