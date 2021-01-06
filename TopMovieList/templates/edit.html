@@ -1,0 +1,48 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block styles %}
+    {{ super() }}
+
+    <!-- Google Fonts -->
+
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Poppins:300,400,700"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Poppins:300,400,700"
+    />
+
+    <!-- Font Awesome CSS -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+            crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS Styling -->
+    <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+{% endblock %}
+
+{% block title %} Edit Rating & Reviews {% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <h1 class="heading">{{ movie.title }}</h1>
+        <p class="description">Edit Movie Rating & Reviews</p>
+
+        {{ wtf.quick_form(form, novalidate=True) }}
+    </div>
+
+{% endblock %}
