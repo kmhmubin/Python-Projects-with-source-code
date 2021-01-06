@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+import sqlite3
 
 app = Flask(__name__)
 
@@ -7,6 +8,20 @@ app.secret_key = b'\xeb\x8b!\x9c\x8cF}\xa0\xa3:\xe4f\xe9\xc7\xc4\x9b'
 # all books list
 
 all_books = []
+
+db = sqlite3.connect("books-collection.db")
+
+cursor = db.cursor()
+
+# create the table
+# cursor.execute("CREATE TABLE books (id INTEGER PRIMARY KEY, title varchar(250) NOT NULL UNIQUE, author varchar(250) "
+#                "NOT NULL, rating FLOAT NOT NULL )")
+
+
+# insert data into db
+cursor.execute("INSERT INTO books VALUES(1, 'Harry Potter', 'J. K. Rowling', '9.3')")
+
+db.commit()
 
 
 @app.route('/')
