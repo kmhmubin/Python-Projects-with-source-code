@@ -51,5 +51,24 @@ def add():
     return render_template('add.html')
 
 
+@app.route('/edit', methods=["GET", "POST"])
+def edit():
+    if request.method == "POST":
+        # update the record
+        book_id = request.form["id"]
+        # get the book id
+        book_to_update = Book.query.get(book_id)
+        # update the rating
+        book_to_update.rating = request.form["rating"]
+        # commit into db
+        db.session.commit()
+        # after update go back to home
+        return redirect(url_for('home'))
+    book_id = request.args.get('id')
+    # select the specific book
+    book_selected = Book.query.get(book_id)
+    return render_template('edit.html', book=book_selected)
+
+
 if __name__ == '__main__':
     app.run()
