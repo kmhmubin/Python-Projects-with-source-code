@@ -25,6 +25,7 @@
 - black_jack
 - blind_auction
 - bmi
+- BookTracker
 - caesar_cipher
 - calculator_app
 - Coffeefi
