@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-import sqlite3
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -9,19 +9,34 @@ app.secret_key = b'\xeb\x8b!\x9c\x8cF}\xa0\xa3:\xe4f\xe9\xc7\xc4\x9b'
 
 all_books = []
 
-db = sqlite3.connect("books-collection.db")
+# creating database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new-books-collection.db'
 
-cursor = db.cursor()
-
-# create the table
-# cursor.execute("CREATE TABLE books (id INTEGER PRIMARY KEY, title varchar(250) NOT NULL UNIQUE, author varchar(250) "
-#                "NOT NULL, rating FLOAT NOT NULL )")
+# connecting the database with flask app
+db = SQLAlchemy(app)
 
 
-# insert data into db
-cursor.execute("INSERT INTO books VALUES(1, 'Harry Potter', 'J. K. Rowling', '9.3')")
+# Creating table
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(250), unique=True, nullable=False)
+    author = db.Column(db.String(250), nullable=False)
+    rating = db.Column(db.Float, nullable=False)
 
-db.commit()
+    # this allow each book object to be identify by its title
+    def __repr__(self):
+        return f'<Book {self.title}>'
+
+
+# create the database
+db.create_all()
+
+# create the record in db
+new_book = Book(id=1, title="Harry Potter", author="J. K. Rowling", rating=9.3)
+
+db.session.add(new_book)
+
+db.session.commit()
 
 
 @app.route('/')
