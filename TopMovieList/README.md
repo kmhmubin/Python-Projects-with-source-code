@@ -2,7 +2,7 @@
 
 A simple personalize top movie list in flask.
 
-## technologies
+## Technologies
 
 - Flask
 - Flask Bootstrap
@@ -11,3 +11,6 @@ A simple personalize top movie list in flask.
 - requests
 - The Movie Database API
 
+## Demo
+
+![DEMO](https://github.com/kmhmubin/Python-Projects-with-source-code/blob/master/TopMovieList/demo.png)
