@@ -1,61 +1,23 @@
 {% extends 'bootstrap/base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block styles %}
     {{ super() }}
-
-    <!-- Google Fonts -->
-
-    <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700"
-    />
-    <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Poppins:300,400,700"
-    />
-    <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Poppins:300,400,700"
-    />
-
-    <!-- Font Awesome CSS -->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-            crossorigin="anonymous"
-    />
-
-    <!-- Custom CSS Styling -->
-    <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename='css/styles.css') }}"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
-{% block title %} Select Movies {% endblock %}
+{% block title %}Select Movie{% endblock %}
 
 {% block content %}
     <div class="container">
-
-        <div class="content">
-            <h1 class="heading">Select Movie</h1>
-
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    Select A Movie
-                </div>
-                {% for movie in options: %}
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ movie.title }} | ({{ movie.release_date }})</li>
-                    </ul>
-                {% endfor %}
-            </div>
-
-
-        </div>
+        <h1 class="heading">Select Movie</h1>
+        {% for movie in options: %}
+            <p>
+                <a href="{{ url_for('find_movie', id=movie.id) }} ">{{ movie.title }} - {{ movie.release_date }}</a>
+            </p>
+        {% endfor %}
 
     </div>
 {% endblock %}
