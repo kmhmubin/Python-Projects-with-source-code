@@ -34,14 +34,13 @@
     />
 {% endblock %}
 
-{% block title %} Edit Rating & Reviews {% endblock %}
+{% block title %} Add Movies {% endblock %}
 
 {% block content %}
     <div class="container">
 
         <div class="content">
-            <h1 class="heading">{{ movie.title }}</h1>
-            <p class="description">Edit Movie Rating & Reviews</p>
+            <h1 class="heading">Add A Movie</h1>
 
             {{ wtf.quick_form(form, novalidate=True) }}
         </div>
