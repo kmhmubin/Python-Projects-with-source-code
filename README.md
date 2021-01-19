@@ -18,65 +18,70 @@
 ## Projects List
 
 - 100_movies_list
-- ArtSlate
-- Auto Job Application submit on linkedin
+- Art Slate
+- Auto Job Application submit on LinkedIn
 - Automate-Birthday-Wisher
 - average_height_using_for_loop
 - black_jack
 - blind_auction
 - bmi
-- BookTracker
+- Book Tracker
 - caesar_cipher
 - calculator_app
 - Coffeefi
-- CoffeeMachine
-- CoffeeMachineOPP
+- Coffee Machine
+- Coffee Machine OPP
 - fizzbuzz
-- FlasKBlog
+- FlasK Blog
 - flaskWTForm
-- GamingBot
+- Gaming Bot
 - guess_the_number
-- GuessAge_Gender
-- GuessNumberWebApp
-- HabitTracker
+- Guess Age_Gender
+- Guess Number Web App
+- Habit Tracker
 - hangman
 - hello
 - higher_or_lower_game
-- InstaFollowerBot
-- InternetSpeedTwitteBot
+- Insta Follower Bot
+- Internet Speed Twitte Bot
+- Internet Speed Meter in Tkinter
 - ISS-Tracker
 - Kanye-Quotes
 - leapyear
 - life_in_weeks
 - love_calculator
 - Mile_to_KM_Converter_GUI
-- NameCard
+- Name Card
 - password_generator
 - Personal_Flight_Club
 - Pomodoro
-- PongGame
-- QuizerApp
-- QuizGame
-- RainAlert
+- Pong Game
+- Quizer App
+- Quiz Game
+- Rain Alert
 - rock_paper_scissor
-- SanFranciscoRentingAutomation
-- SnakeGame
-- StockNewsAleart
-- TinderBot
+- San-Francisco Renting Automation
+- Snake Game
+- Stock News Aleart
+- Tinder Bot
 - tipcal
 - Tresure_Island
 - tresure_map
-- TurtleCrossingGame
-- TurtleDotArt
-- TurtleRace
+- Turtle Crossing Game
+- Turtle Dot Art
+- Turtle Race
 - US_States_Quiz_Game
 - whos_paying
-- WorkoutTracking
+- Workout Tracking
 
-## Contributers
+## Contributors
 
-Contributers are welcome. You can add your projects.
+Contributors are welcome. You can add your projects.
 
 1. First Fork this repo
 2. Add your project name in the list
 3. Add pull request
+
+
+
+#### 📢 If you like those project then please give a star and share with your friends. 💗
