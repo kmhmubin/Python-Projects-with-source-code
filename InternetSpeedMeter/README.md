@@ -5,6 +5,7 @@ A simple internet speed usages meter in tkinter
 **Features**
 - Download speed
 - Upload speed
+- Data usages
 - CPU usages
 - Computer Info
 
